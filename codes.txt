@@ -1,10 +1,14 @@
-Установка сборщика
+Megahit v.1.0.3
+
+installing 
+
 
 wget https://github.com/voutcn/megahit/releases/download/v1.0.3/megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin.tar.gz
 tar zvxf megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin.tar.gz
 
 
-Сплиты файлов
+spliting files for assembler
+
 
 wc -l 512_0_1.fq
 split -l 67900736 512_0_1.fq
@@ -109,7 +113,7 @@ split -l 530472 4_5_2.fq
 mv xaa 2_5_2.fq
 
 
-Запуск сборщика
+assembly
 
 
 megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 2_2_1.fq -2 2_2_2.fq -o out_0err_2
@@ -133,3 +137,10 @@ megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 16_5_1.fq -2 16_5_2.fq 
 megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 32_5_1.fq -2 32_5_2.fq -o out_5err_32
 megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 64_5_1.fq -2 64_5_2.fq -o out_5err_64
 megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 128_5_1.fq -2 128_5_2.fq -o out_5err_128
+
+
+contigs -> fastg
+
+megahit_toolkit contig2fastg 41 k41_2.contigs.fa > k41_2.fastg
+megahit_toolkit contig2fastg 41 k41_32.contigs.fa > k41_32.fastg
+megahit_toolkit contig2fastg 41 k39_512.contigs.fa > k39_512.fastg
