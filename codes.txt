@@ -138,6 +138,18 @@ megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 32_5_1.fq -2 32_5_2.fq 
 megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 64_5_1.fq -2 64_5_2.fq -o out_5err_64
 megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 128_5_1.fq -2 128_5_2.fq -o out_5err_128
 
+creating reads in wgsim
+wgsim -e 0.05 -N 33950369 GCF_000005845_2_ASM584v2_genomic_fna 512_5_1.fq 512_5_2.fq
+
+Megahit v.1.1.12
+installing
+conda install -c bioconda megahit=1.1.2
+spliting files
+split -l 530474 4_2_1.fq
+
+assembly
+megahit -1 2_0_1.fq -2 2_0_2.fq -o out -m 0.6
+
 
 contigs -> fastg
 
