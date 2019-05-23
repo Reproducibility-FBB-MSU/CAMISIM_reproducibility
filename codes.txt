@@ -1,188 +1,60 @@
-Megahit v.1.0.3
+#CREATING READS WITH WGSIM
 
-installing 
+wgsim -e 0.05 -N 33950369 GCF_000005845_2_ASM584v2_genomic_fna 512_5_1.fq 512_5_2.fq
 
+#MEGAHIT v.1.0.3
+
+#INSTALLING
 
 wget https://github.com/voutcn/megahit/releases/download/v1.0.3/megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin.tar.gz
 tar zvxf megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin.tar.gz
 
+#SPLITTING FILES FOR ASSEMBLER
 
-spliting files for assembler
-
-
-wc -l 512_0_1.fq
-split -l 67900736 512_0_1.fq
-mv xaa 256_0_1.fq
-split -l 67900736 512_0_2.fq
-mv xaa 256_0_2.fq
-split -l 33950368 256_0_1.fq
-mv xaa 128_0_1.fq
-split -l 33950368 256_0_2.fq
-mv xaa 128_0_2.fq
-split -l 16975184 128_0_1.fq
-mv xaa 64_0_1.fq
-split -l 16975184 128_0_2.fq
-mv xaa 64_0_2.fq
-split -l 8487592 64_0_1.fq
-mv xaa 32_0_1.fq
-split -l 8487592 64_0_2.fq
-mv xaa 32_0_2.fq
-split -l 4243796 32_0_1.fq
-mv xaa 16_0_1.fq
-split -l 4243796 32_0_2.fq
-mv xaa 16_0_2.fq
-split -l 2121896 16_0_1.fq
-mv xaa 8_0_1.fq
-split -l 2121896 16_0_2.fq
-mv xaa 8_0_2.fq
-split -l 1060948 8_0_1.fq
-mv xaa 4_0_1.fq
-split -l 1060948 8_0_2.fq
-mv xaa 4_0_2.fq
-split -l 530472 4_0_1.fq
-mv xaa 2_0_1.fq
-split -l 530472 4_0_2.fq
-mv xaa 2_0_2.fq
-
-wc -l 512_2_1.fq
-split -l 67900736 512_2_1.fq
-mv xaa 256_2_1.fq
-split -l 67900736 512_2_2.fq
-mv xaa 256_2_2.fq
-split -l 33950368 256_2_1.fq
-mv xaa 128_2_1.fq
-split -l 33950368 256_2_2.fq
-mv xaa 128_2_2.fq
-split -l 16975184 128_2_1.fq
-mv xaa 64_2_1.fq
-split -l 16975184 128_2_2.fq
-mv xaa 64_2_2.fq
-split -l 8487592 64_2_1.fq
-mv xaa 32_2_1.fq
-split -l 8487592 64_2_2.fq
-mv xaa 32_2_2.fq
-split -l 4243796 32_2_1.fq
-mv xaa 16_2_1.fq
-split -l 4243796 32_2_2.fq
-mv xaa 16_2_2.fq
-split -l 2121896 16_2_1.fq
-mv xaa 8_2_1.fq
-split -l 2121896 16_2_2.fq
-mv xaa 8_2_2.fq
-split -l 1060948 8_2_1.fq
-mv xaa 4_2_1.fq
-split -l 1060948 8_2_2.fq
-mv xaa 4_2_2.fq
-split -l 530472 4_2_1.fq
-mv xaa 2_2_1.fq
-split -l 530472 4_2_2.fq
-mv xaa 2_2_2.fq
-
-wc -l 512_5_1.fq
-split -l 67900736 512_5_1.fq
-mv xaa 256_5_1.fq
-split -l 67900736 512_5_2.fq
-mv xaa 256_5_2.fq
-split -l 33950368 256_5_1.fq
-mv xaa 128_5_1.fq
-split -l 33950368 256_5_2.fq
-mv xaa 128_5_2.fq
-split -l 16975184 128_5_1.fq
-mv xaa 64_5_1.fq
-split -l 16975184 128_5_2.fq
-mv xaa 64_5_2.fq
-split -l 8487592 64_5_1.fq
-mv xaa 32_5_1.fq
-split -l 8487592 64_5_2.fq
-mv xaa 32_5_2.fq
-split -l 4243796 32_5_1.fq
-mv xaa 16_5_1.fq
-split -l 4243796 32_5_2.fq
-mv xaa 16_5_2.fq
-split -l 2121896 16_5_1.fq
-mv xaa 8_5_1.fq
-split -l 2121896 16_5_2.fq
-mv xaa 8_5_2.fq
-split -l 1060948 8_5_1.fq
-mv xaa 4_5_1.fq
-split -l 1060948 8_5_2.fq
-mv xaa 4_5_2.fq
 split -l 530472 4_5_1.fq
 mv xaa 2_5_1.fq
 split -l 530472 4_5_2.fq
 mv xaa 2_5_2.fq
 
+#ASSEMBLY
 
-assembly
-
-
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 2_2_1.fq -2 2_2_2.fq -o out_0err_2
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 4_2_1.fq -2 4_2_2.fq -o out_0err_4
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 8_2_1.fq -2 8_2_2.fq -o out_0err_8
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 16_2_1.fq -2 16_2_2.fq -o out_0err_16
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 32_2_1.fq -2 32_2_2.fq -o out_0err_32
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 64_2_1.fq -2 64_2_2.fq -o out_0err_64
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 128_2_1.fq -2 128_2_2.fq -o out_0err_128
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 2_2_1.fq -2 2_2_2.fq -o out_2err_2
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 4_2_1.fq -2 4_2_2.fq -o out_2err_4
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 8_2_1.fq -2 8_2_2.fq -o out_2err_8
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 16_2_1.fq -2 16_2_2.fq -o out_2err_16
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 32_2_1.fq -2 32_2_2.fq -o out_2err_32
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 64_2_1.fq -2 64_2_2.fq -o out_2err_64
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 128_2_1.fq -2 128_2_2.fq -o out_2err_128
 megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 2_5_1.fq -2 2_5_2.fq -o out_5err_2
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 4_5_1.fq -2 4_5_2.fq -o out_5err_4
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 8_5_1.fq -2 8_5_2.fq -o out_5err_8
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 16_5_1.fq -2 16_5_2.fq -o out_5err_16
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 32_5_1.fq -2 32_5_2.fq -o out_5err_32
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 64_5_1.fq -2 64_5_2.fq -o out_5err_64
-megahit_v1.0.3_LINUX_CUDA6.5_sm350_x86_64-bin/megahit -1 128_5_1.fq -2 128_5_2.fq -o out_5err_128
 
-creating reads in wgsim
-wgsim -e 0.05 -N 33950369 GCF_000005845_2_ASM584v2_genomic_fna 512_5_1.fq 512_5_2.fq
+#MEGAHIT v.1.1.12
 
-Megahit v.1.1.12
-installing
+#INSTALLING
+
 conda install -c bioconda megahit=1.1.2
-spliting files
+
+#SPLITTING FILES
+
 split -l 530474 4_2_1.fq
 
-assembly
+#ASSEMBLY
+
 megahit -1 2_0_1.fq -2 2_0_2.fq -o out -m 0.6
 
-
-contigs -> fastg
+#CONVERTING CONTIGS TO .FASTG FORMAT FOR BANDAGE VISUALISATION
 
 megahit_toolkit contig2fastg 41 k41_2.contigs.fa > k41_2.fastg
 megahit_toolkit contig2fastg 41 k41_32.contigs.fa > k41_32.fastg
 megahit_toolkit contig2fastg 41 k39_512.contigs.fa > k39_512.fastg
 
+#mmetaSPAdes3.12.0
 
+#INSTALLATION
 
-
-metaSPAdes3.12.0
-
-installation:
 wget http://cab.spbu.ru/files/release3.12.0/SPAdes-3.12.0-Linux.tar.gz
 tar -xzf SPAdes-3.12.0-Linux.tar.gz
 
-splitting files:
-similarly with
+#SPLITTING FILES
 
 split -n 2 512_0_1.fq
 
-manipulations with files: vi redactor
+#ASSEMBLY
 
-assembling:
-python3 metaspades.py --phred-offset 33 -1 128_2_1.fq -2 128_2_2.fq -o out
+python3 metaspades.py --phred-offset 33 -1 2_5_1.fq -2 2_5_2.fq -o out
 
+#QUAST
 
-
-
-
-
-
-
-
-QUAST
 python quast.py -r ../cococoli.fna ../final.contigs*
