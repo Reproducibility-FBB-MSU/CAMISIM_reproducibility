@@ -1,1 +1,1 @@
-Pair-ended reads with different coverage and different error rates generated with wgsim.
+Pair-ended reads with 2x coverage (for example; during our project we worked also with 4x, 8x, 16x, 32x, 64x, 128x (256x and 512x also for megahit 1.1.2) coverages) and different error rates (0%, 2%, 5%) generated with wgsim.
